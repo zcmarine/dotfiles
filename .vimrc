@@ -1,5 +1,11 @@
-" Largely based off of https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-" NOTE: <leader> is currently set to <space>
+" Largely based off of these tutorials:
+" - https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+" - http://nvie.com/posts/how-i-boosted-my-vim/
+"
+" To start vim without using this .vimrc file, use:
+"     vim -u NORC
+" To start vim without loading any .vimrc or plugins, use:
+"     vim -u NONE
 
 set nocompatible              " required
 filetype off                  " required
@@ -31,24 +37,54 @@ Plugin 'powerline/powerline'               " Add status/tabline
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" Add virtualenv support (alternative: use jmcantrell/vim-virtualenv Plugin)
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
-"simplify shortcuts in split navigation
+" Simplify shortcuts in split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap ; :
+
+" Clear search buffer with ,/
+nmap <silent> ,/ :nohlsearch<CR>
+
 " Enable folding with the spacebar
 nnoremap <space> za
+
+" Allow switching between buffers without saving and closing the first one
+set hidden
+
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Show matching parenthesis
+set showmatch
+
+" Ignore case when searching
+set ignorecase
+
+" Ignore case if search pattern is al lowercase; case-sensitive otherwise
+set smartcase
+
+" Don't beep
+set visualbell
+set noerrorbells
+
+" Change terminal's title
+set title
+
+" Switch into 'paste mode' to prevent cascading indents on large pastes
+set pastetoggle=<F2>
 
 " Enable folding
 set foldmethod=indent
@@ -100,7 +136,7 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+    " \ set textwidth=79 |  " remove this to prevent text wrapping
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
@@ -112,7 +148,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set shiftwidth=2 |
 
 " Auto-run Flake8 on every .py save
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 " Flag unnecessary whitespace
 highlight BadWhitespace ctermbg=red guibg=red

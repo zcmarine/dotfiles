@@ -9,6 +9,7 @@
 
 set nocompatible              " required
 filetype off                  " required
+set t_Co=256
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -30,7 +31,14 @@ Plugin 'scrooloose/nerdtree'               " Add a file tree
 Plugin 'jistr/vim-nerdtree-tabs'           " Allow tab usage
 Plugin 'ctrlpvim/ctrlp.vim'                " Search for almost anything from vim
 Plugin 'tpope/vim-fugitive'                " Run git within vim
-Plugin 'powerline/powerline'               " Add status/tabline
+
+" Add powerline status/tabline
+" Make sure to install a font with Powerline's symbols
+" from here (I used Inconsolata-g):
+"     https://github.com/powerline/fonts
+" You'll then have to set that font as the terminal/ITerm2
+" default for non-ASCII text in Preferences
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}  " Add status/tabline
 
 
 " All of your Plugins must be added before the following line
@@ -55,6 +63,8 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap ; :
 
+nnoremap <tab> :b#<CR>
+
 " Clear search buffer with ,/
 nmap <silent> ,/ :nohlsearch<CR>
 
@@ -63,6 +73,9 @@ nnoremap <space> za
 
 " Allow switching between buffers without saving and closing the first one
 set hidden
+
+" Allow the mouse to be used in the GUI (e.g. for window resizing)
+set mouse=n
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -104,6 +117,11 @@ set hls
 " Add ruler for line length
 set colorcolumn=78
 
+" Powerline settings
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
 " Make code look pretty
 let python_highlight_all=1
 syntax on
@@ -124,8 +142,8 @@ let g:flake8_show_in_file=1
 " Definition comes up with <space>+g
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Simplify NERDTree shortcut
-map <leader>kb  :NERDTree<CR>
+" Toggle NERDTree
+map <leader>kb :NERDTreeToggle<CR>
 
 " See docstrings for folded code
 "let g:SimpylFold_docstring_preview=1
@@ -160,3 +178,13 @@ colorscheme zenburn
 
 " Switch between light and dark Solarized color theme with F5
 call togglebg#map("<F5>")
+
+" Highlight NERDTree .py files
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('py', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('sql', 'red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('ipynb', 'blue', 'none', 'blue', '#151515')

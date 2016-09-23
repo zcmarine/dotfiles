@@ -125,6 +125,8 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 " Make code look pretty
 let python_highlight_all=1
 syntax on
+" add Python syntax highlighting for all .py* files
+au BufNewFile,BufRead *.py.* set filetype=python
 
 " Ensure auto-complete goes away after completion
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -150,7 +152,7 @@ map <leader>kb :NERDTreeToggle<CR>
 
 " Get standard four spaces on tabs, ensure line lengths don't pass 80
 " characters, and store file in unix format
-au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.py,*.py.*
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |

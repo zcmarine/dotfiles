@@ -114,8 +114,11 @@ set clipboard=unnamed
 " Turn on highlighting for searches
 set hls
 
-" Add ruler for line length
-set colorcolumn=78
+" Add ruler for line length; note that you'll want to add the following to
+" ~/.config/flake8 as well:
+"     [flake8]
+"     max-line-length = 100
+set colorcolumn=100
 
 " Powerline settings
 set laststatus=2 " Always display the statusline in all windows
@@ -137,9 +140,9 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " ignore .pyc files in CtrlP
 set wildignore+=*/tmp/*,*.pyc,*/build/*,*/src/*
 
-" show Flake8 markers in file
+" show Flake8 markers in file and gutter
 let g:flake8_show_in_file=1
-
+let g:flake8_show_in_gutter=1
 
 " Definition comes up with <space>+g
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>

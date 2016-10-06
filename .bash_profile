@@ -12,7 +12,13 @@ export PATH
 # Set up virtualenvwrapper
 export WORKON_HOME=$HOME/Envs
 source /usr/local/bin/virtualenvwrapper.sh
-alias vim=/usr/local/bin/vim
+
+# Add powerline bar to prompt
+# First do: `pip install powerline-status`
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+# Add the testdb used for testing data access tools
+export testdb=postgres://zcmarine:zcmarine@data-access-tool.ctjp0jihlvoe.us-west-2.rds.amazonaws.com:5432/dellstore
 
 # Load shell dotfiles
 #   - ~/.path can be used to extend `$PATH`
@@ -27,15 +33,22 @@ unset file
 export GREP_OPTIONS='--color=always'
 
 # Create shortcuts
-export BI=/Users/zcmarine/repos/business-intelligence/
-export BII=/Users/zcmarine/repos/business-intelligence/pybi/scripts
+export BI=$HOME/repos/business-intelligence/
+export BII=$HOME/repos/business-intelligence/pybi/scripts
+
+
+alias vim=/usr/local/bin/vim
 
 # Create alias for ls-ing only directories
 alias lsd='ls -l | grep "^d"'
 
 # Always use color output for `ls`
-alias ls="command ls -G"
+alias ls='command ls -G'
 
+# If holder for sensitive bash_profile items exists, source it
+if [[ -e  $HOME/.bash_sensitive ]] ; then
+    source ~/.bash_sensitive
+fi
 
 
 ######### Build out the terminal prompt #########

@@ -145,6 +145,8 @@ set wildignore+=*/tmp/*,*.pyc,*/build/*,*/src/*
 let g:flake8_show_in_file=1
 let g:flake8_show_in_gutter=1
 
+" Remap leader with: let mapleader = ","
+
 " Definition comes up with <space>+g
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 

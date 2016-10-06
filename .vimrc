@@ -31,6 +31,7 @@ Plugin 'scrooloose/nerdtree'               " Add a file tree
 Plugin 'jistr/vim-nerdtree-tabs'           " Allow tab usage
 Plugin 'ctrlpvim/ctrlp.vim'                " Search for almost anything from vim
 Plugin 'tpope/vim-fugitive'                " Run git within vim
+Plugin 'tpope/vim-vinegar'                 " Do quicker simplified directory searching
 
 " Add powerline status/tabline
 " Make sure to install a font with Powerline's symbols

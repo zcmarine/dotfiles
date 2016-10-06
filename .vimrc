@@ -193,3 +193,13 @@ endfunction
 call NERDTreeHighlightFile('py', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('sql', 'red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('ipynb', 'blue', 'none', 'blue', '#151515')
+
+" Define function to save cursor position, trim trailing white space, and restore cursor position
+fun! TrimWhitespace()
+    let l:save_cursor = getpos('.')
+    %s/\s\+$//e
+    call setpos('.', l:save_cursor)
+endfun
+
+" Trim whitespace when saving
+autocmd BufWritePre * :call TrimWhitespace()

@@ -50,6 +50,12 @@ if [[ -e  $HOME/.bash_sensitive ]] ; then
     source ~/.bash_sensitive
 fi
 
+# Easier recursive grepping of repos
+grepd() {
+    grep -IR --exclude-dir={.git,.idea,.tox,build,src} "$1" .
+}
+alias grepd=grepd
+
 
 ######### Build out the terminal prompt #########
 

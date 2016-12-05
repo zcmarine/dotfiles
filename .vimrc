@@ -32,11 +32,11 @@ Plugin 'jistr/vim-nerdtree-tabs'           " Allow tab usage
 Plugin 'ctrlpvim/ctrlp.vim'                " Search for almost anything from vim
 Plugin 'tpope/vim-fugitive'                " Run git within vim
 Plugin 'tpope/vim-vinegar'                 " Do quicker simplified directory searching
+Plugin 'tpope/vim-commentary'              " Toggle block comments with gc
 
 " Add powerline status/tabline
 " Make sure to install a font with Powerline's symbols
-" from here (I used Inconsolata-g):
-"     https://github.com/powerline/fonts
+" from here (I used Inconsolata-g): https://github.com/powerline/fonts
 " You'll then have to set that font as the terminal/ITerm2
 " default for non-ASCII text in Preferences
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}  " Add status/tabline

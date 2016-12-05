@@ -1,0 +1,47 @@
+[alias]
+        # Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	# Pretty log output
+	hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
+	logg = log --oneline --all --graph --decorate
+	mnff = merge --no-ff
+
+[color]
+        # Use colors in Git commands that are capable of colored output when outputting to the terminal
+	ui = auto
+[color "branch"]
+	current = reverse yellow
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow
+	frag = magenta
+	new = green
+	old = red
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+[core]
+	excludesfile = *.ipynb
+	editor = vim
+	autocrlf = input
+	ignorecase = false
+
+[user]
+	name = Zach Marine
+	email = zmarine@squarespace.com
+
+[push]
+	default = current
+
+[branch]
+	autosetuprebase = always

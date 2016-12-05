@@ -52,7 +52,7 @@ fi
 
 # Easier recursive grepping of repos
 grepd() {
-    grep -IR --exclude-dir={.git,.idea,.tox,build,src} "$1" .
+    grep -IR --exclude-dir={.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .
 }
 alias grepd=grepd
 

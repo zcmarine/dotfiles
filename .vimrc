@@ -158,7 +158,7 @@ map <leader>kb :NERDTreeToggle<CR>
 
 " Get standard four spaces on tabs, ensure line lengths don't pass 80
 " characters, and store file in unix format
-au BufNewFile,BufRead *.py,*.py.*
+au BufNewFile,BufRead *.py,*.py.*,*.yaml,*.yml
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |

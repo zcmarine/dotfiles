@@ -4,9 +4,8 @@
 
 ######### Set up terminal functionality #########
 
-# Add Homebrew's `/usr/local/bin` and User's `~/bin` to `$PATH`
-PATH=/usr/local/bin:$PATH
-PATH=$HOME/bin:$PATH
+# Add the default install locations for Homebrew and pip --user to `$PATH`
+PATH=$HOME/Library/Python/2.7/bin:/usr/local/bin:$PATH
 export PATH
 
 # Set up virtualenvwrapper
@@ -15,7 +14,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Add powerline bar to prompt
 # First do: `pip install powerline-status`
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+source $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
 
 # Add the testdb used for testing data access tools
 export testdb=postgres://zcmarine:zcmarine@data-access-tool.ctjp0jihlvoe.us-west-2.rds.amazonaws.com:5432/dellstore

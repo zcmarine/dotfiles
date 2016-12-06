@@ -33,6 +33,7 @@ Plugin 'ctrlpvim/ctrlp.vim'                " Search for almost anything from vim
 Plugin 'tpope/vim-fugitive'                " Run git within vim
 Plugin 'tpope/vim-vinegar'                 " Do quicker simplified directory searching
 Plugin 'tpope/vim-commentary'              " Toggle block comments with gc
+Plugin 'benmills/vimux'                    " Allow vim to interact with tmux
 
 " Add powerline status/tabline
 " Make sure to install a font with Powerline's symbols
@@ -68,6 +69,15 @@ nnoremap <tab> :b#<CR>
 
 " Clear search buffer with ,/
 nmap <silent> ,/ :nohlsearch<CR>
+
+" Copy code to the clipboard and send it to other pane. You also need
+" to `brew install reattach-to-user-namespace` in order for vim to
+" access the OSX clipboard within tmux
+vnoremap <leader>t "+y:call VimuxRunCommand("%paste")<CR>
+
+" define the parameters for a new pane if Vimux has to create one
+let g:VimuxHeight = "40"       " percent of screen size
+let g:VimuxOrientation = "h"   " split to the right from the current pane
 
 " Enable folding with the spacebar
 nnoremap <space> za

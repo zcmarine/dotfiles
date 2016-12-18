@@ -1,3 +1,6 @@
+# To make git recognize your global gitignore, run:
+#     git config --global core.excludesfile '~/.gitignore'
+
 .DS_Store
 .dev_version_suffix
 .bamboo_version

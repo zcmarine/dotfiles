@@ -47,21 +47,14 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}  " Add status/t
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Add virtualenv support (alternative: use jmcantrell/vim-virtualenv Plugin)
-"py << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
-
 " Simplify shortcuts in split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap ; :
+nnoremap : ;
 
 nnoremap <tab> :b#<CR>
 
@@ -214,6 +207,3 @@ endfun
 
 " Trim whitespace when saving
 autocmd BufWritePre * :call TrimWhitespace()
-
-nnoremap ; :
-nnoremap : ;

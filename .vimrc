@@ -1,4 +1,4 @@
-" Largely based off of these tutorials:
+
 " - https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 " - http://nvie.com/posts/how-i-boosted-my-vim/
 "
@@ -63,13 +63,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap ; :
-nnoremap : ;
-
 nnoremap <tab> :b#<CR>
 
 " Clear search buffer with ,/
-nmap <silent> ,/ :nohlsearch<CR>
+nnoremap <silent> ,/ :nohlsearch<CR>
 
 " Copy code to the clipboard and send it to other pane. You also need
 " to `brew install reattach-to-user-namespace` in order for vim to
@@ -159,10 +156,10 @@ let g:flake8_show_in_gutter=1
 " Remap leader with: let mapleader = ","
 
 " Definition comes up with <space>+g
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle NERDTree
-map <leader>kb :NERDTreeToggle<CR>
+nnoremap <leader>kb :NERDTreeToggle<CR>
 
 " See docstrings for folded code
 "let g:SimpylFold_docstring_preview=1
@@ -217,3 +214,6 @@ endfun
 
 " Trim whitespace when saving
 autocmd BufWritePre * :call TrimWhitespace()
+
+nnoremap ; :
+nnoremap : ;

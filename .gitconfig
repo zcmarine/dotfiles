@@ -31,7 +31,7 @@
         merge = refs/heads/master
 
 [core]
-	excludesfile = *.ipynb
+	excludesfile = ~/.gitignore
 	editor = vim
 	autocrlf = input
 	ignorecase = false

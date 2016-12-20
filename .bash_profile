@@ -45,10 +45,12 @@ if [[ -e  $HOME/.bash_sensitive ]] ; then
 fi
 
 # Easier recursive grepping of repos
-grepd() {
-    grep -IR --exclude-dir={.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .
-}
-alias grepd=grepd
+grepd() { grep -IR --exclude-dir={.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
+
+tma() { tmux attach -t $1; }
+tmn() { tmux new -s $1; }
+tmd () { tmux kill-session -t $1; }
+tmls () { tmux ls; }
 
 
 ########################################################################

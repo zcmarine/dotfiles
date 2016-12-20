@@ -1,4 +1,4 @@
-
+" Largely based off of these tutorials:
 " - https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 " - http://nvie.com/posts/how-i-boosted-my-vim/
 "
@@ -42,7 +42,6 @@ Plugin 'benmills/vimux'                    " Allow vim to interact with tmux
 " default for non-ASCII text in Preferences
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}  " Add status/tabline
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -53,13 +52,28 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap ; :
-nnoremap : ;
+" Switch between the two most recent tabs + add easier cycling
+nnoremap <leader>s :b#<CR>
+nnoremap <leader>b :bp<CR>
+nnoremap <leader>f :bn<CR>
 
-nnoremap <tab> :b#<CR>
+" Create a real delete command (not just a cut)
+nnoremap <leader>d "_d
 
 " Clear search buffer with ,/
 nnoremap <silent> ,/ :nohlsearch<CR>
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Definition comes up with <space>+g
+nnoremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Toggle NERDTree
+nnoremap <leader>kb :NERDTreeToggle<CR>
+
+nnoremap ; :
+nnoremap : ;
 
 " Copy code to the clipboard and send it to other pane. You also need
 " to `brew install reattach-to-user-namespace` in order for vim to
@@ -69,9 +83,6 @@ vnoremap <leader>t "+y:call VimuxRunCommand("%paste")<CR>
 " define the parameters for a new pane if Vimux has to create one
 let g:VimuxHeight = "40"       " percent of screen size
 let g:VimuxOrientation = "h"   " split to the right from the current pane
-
-" Enable folding with the spacebar
-nnoremap <space> za
 
 " Allow switching between buffers without saving and closing the first one
 set hidden
@@ -127,6 +138,9 @@ set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
+" ignore .pyc files in CtrlP
+set wildignore+=*/tmp/*,*.pyc,*/build/*,*/src/*
+
 " Make code look pretty
 let python_highlight_all=1
 syntax on
@@ -139,20 +153,12 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " ignore .pyc files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
-" ignore .pyc files in CtrlP
-set wildignore+=*/tmp/*,*.pyc,*/build/*,*/src/*
-
 " show Flake8 markers in file and gutter
 let g:flake8_show_in_file=1
 let g:flake8_show_in_gutter=1
 
 " Remap leader with: let mapleader = ","
 
-" Definition comes up with <space>+g
-nnoremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" Toggle NERDTree
-nnoremap <leader>kb :NERDTreeToggle<CR>
 
 " See docstrings for folded code
 "let g:SimpylFold_docstring_preview=1

@@ -72,6 +72,13 @@ nnoremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Toggle NERDTree
 nnoremap <leader>kb :NERDTreeToggle<CR>
 
+" Quick movement between buffers
+let c = 1
+while c < 10
+    execute "nnoremap <leader>" . c . " :b" . c. "<CR>"
+    let c += 1
+endwhile
+
 nnoremap ; :
 nnoremap : ;
 

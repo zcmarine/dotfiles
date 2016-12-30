@@ -71,6 +71,7 @@ nnoremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle NERDTree
 nnoremap <leader>kb :NERDTreeToggle<CR>
+nnoremap <leader>\ :NERDTreeToggle<CR>
 
 " Quick movement between buffers
 let c = 1
@@ -220,3 +221,9 @@ endfun
 
 " Trim whitespace when saving
 autocmd BufWritePre * :call TrimWhitespace()
+
+
+" Stop vim from taking over the title bar after exit (untested)
+set title
+set titleold=""
+set titlestring=VIM:\ %F

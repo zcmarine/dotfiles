@@ -88,9 +88,12 @@ nnoremap : ;
 " access the OSX clipboard within tmux
 vnoremap <leader>t "+y:call VimuxRunCommand("%paste")<CR>
 
-" define the parameters for a new pane if Vimux has to create one
+" Define the parameters for a new pane if Vimux has to create one
 let g:VimuxHeight = "40"       " percent of screen size
 let g:VimuxOrientation = "h"   " split to the right from the current pane
+
+" Quit NERDTree after opening a file
+let NERDTreeQuitOnOpen=1
 
 " Allow switching between buffers without saving and closing the first one
 set hidden

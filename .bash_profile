@@ -29,6 +29,7 @@ export GREP_OPTIONS='--color=always'
 # Create shortcuts
 export BI=$HOME/repos/business-intelligence/
 export BII=$HOME/repos/business-intelligence/pybi/scripts
+export DT=$HOME/repos/dotfiles
 
 # Tell tmux where to put sessions (make it if it doesn't exist)
 mkdir -p $HOME/.tmux_sessions/

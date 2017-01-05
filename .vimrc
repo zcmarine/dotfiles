@@ -162,7 +162,7 @@ au BufNewFile,BufRead *.py.* set filetype=python
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " ignore .pyc files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '^build$', '^dist$', '\.egg-info', '__pycache__', 'junit-py[0-9]\+\.xml$']
 
 " show Flake8 markers in file and gutter
 let g:flake8_show_in_file=1

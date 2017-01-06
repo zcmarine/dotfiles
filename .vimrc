@@ -135,8 +135,10 @@ set nu
 " Make OSX clipboard accessible by vim
 set clipboard=unnamed
 
-" Turn on highlighting for searches
+" Turn on highlighting for searches and incremental search highlighting for
+" first match
 set hls
+set incsearch
 
 " Add ruler for line length; note that you'll want to add the following to
 " ~/.config/flake8 as well:

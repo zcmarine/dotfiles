@@ -6,6 +6,11 @@
 "     vim -u NORC
 " To start vim without loading any .vimrc or plugins, use:
 "     vim -u NONE
+"
+" To remap capslock so that a tap = <Esc> and holding it with other letters =
+" <Ctrl>, install Karabiner and check the boxes for:
+"     - Control_L to Control_L: (+ When you type Control_L only, send Escape)
+"     - Change Escape Key: Disable Escape
 
 set nocompatible              " required
 filetype off                  " required
@@ -131,9 +136,6 @@ set encoding=utf-8
 
 " Turn on line numbers
 set nu
-
-" Make OSX clipboard accessible by vim
-set clipboard=unnamed
 
 " Turn on highlighting for searches and incremental search highlighting for
 " first match

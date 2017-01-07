@@ -56,6 +56,7 @@ tmn() { tmux new -s $1; }
 tmd () { tmux kill-session -t $1; }
 tmls () { tmux ls; }
 
+docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }
 
 ########################################################################
 #################### Build out the terminal prompt #####################

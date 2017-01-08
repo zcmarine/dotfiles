@@ -63,8 +63,8 @@ docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPA
 ########################################################################
 
 
-# If powerline is installed, use it. Otherwise create a PS1 / PS2 prompt
-# You can install powerline with `pip install --user powerline-status`
+# If powerline is installed, use it. Otherwise create a PS1 / PS2 prompt. You can install
+# powerline with `pip install --user powerline-status`. More details in .vimrc
 if [[ -e $HOME/Library/Python/2.7/lib/python/site-packages/powerline ]] ; then
     source $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
 else

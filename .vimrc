@@ -65,6 +65,12 @@ nnoremap <leader>f :bn<CR>
 " Create a real delete command (not just a cut)
 nnoremap <leader>d "_d
 
+" Copy to system clipboard
+nnoremap <leader>y "*y
+
+" Paste from system clipboard
+nnoremap <leader>p "*p
+
 " Clear search buffer with ,/
 nnoremap <silent> ,/ :nohlsearch<CR>
 

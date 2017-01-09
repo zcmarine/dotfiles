@@ -68,7 +68,7 @@ nnoremap <leader>f :bn<CR>
 nnoremap <leader>d "_d
 
 " Copy to system clipboard
-nnoremap <leader>y "*y
+map <leader>y "*y
 
 " Paste from system clipboard
 nnoremap <leader>p "*p

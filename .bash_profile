@@ -65,6 +65,9 @@ docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPA
 
 # If powerline is installed, use it. Otherwise create a PS1 / PS2 prompt. You can install
 # powerline with `pip install --user powerline-status`. More details in .vimrc
+# To get the current git branch into the status bar, navigate to
+# $HOME/Library/Python/2.7/lib/python/site-packages/powerline/config_files/config.json and
+# change the shell theme from "default" to "default_leftonly"
 if [[ -e $HOME/Library/Python/2.7/lib/python/site-packages/powerline ]] ; then
     source $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
 else

@@ -64,14 +64,15 @@ nnoremap <leader>s :b#<CR>
 nnoremap <leader>b :bp<CR>
 nnoremap <leader>f :bn<CR>
 
-" Create a real delete command (not just a cut)
-nnoremap <leader>d "_d
-
-" Copy to system clipboard
-map <leader>y "*y
-
-" Paste from system clipboard
-nnoremap <leader>p "*p
+" Remap the typical d and x to the 0 register and \d and \x to the clipboard
+nnoremap d "0d
+nnoremap <leader>d "*d
+nnoremap x "0x
+nnoremap <leader>x "*x
+vnoremap d "0d
+vnoremap <leader>d "*d
+vnoremap x "0x
+vnoremap <leader>x "*x
 
 " Clear search buffer with ,/
 nnoremap <silent> ,/ :nohlsearch<CR>
@@ -132,6 +133,9 @@ set noerrorbells
 
 " Change terminal's title
 set title
+
+" Use the system's clipboard by default
+set clipboard=unnamed
 
 " Switch into 'paste mode' to prevent cascading indents on large pastes
 set pastetoggle=<F2>

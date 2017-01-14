@@ -53,6 +53,9 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}  " Add status/t
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Reload ~/.vimrc
+nnoremap <leader>r :so $MYVIMRC<CR>
+
 " Simplify shortcuts in split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

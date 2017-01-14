@@ -73,6 +73,7 @@ vnoremap d "0d
 vnoremap <leader>d "*d
 vnoremap x "0x
 vnoremap <leader>x "*x
+nnoremap <leader>p "0p
 
 " Clear search buffer with ,/
 nnoremap <silent> ,/ :nohlsearch<CR>

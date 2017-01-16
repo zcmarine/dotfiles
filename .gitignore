@@ -9,6 +9,9 @@ junit-py27.xml
 *.ipynb
 *.pyc
 *.swp
+*.swo
+*.swn
+*.swm
 
 .cache/
 .eggs/

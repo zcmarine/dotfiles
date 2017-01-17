@@ -8,6 +8,7 @@ junit-py27.xml
 
 *.ipynb
 *.pyc
+*.xml
 *.swp
 *.swo
 *.swn

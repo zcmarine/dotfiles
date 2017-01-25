@@ -72,6 +72,8 @@ tmd () { tmux kill-session -t $1; }
 tmls () { tmux ls; }
 
 docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }
+# Remove all unnamed docker images
+alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 
 ########################################################################
 #################### Build out the terminal prompt #####################

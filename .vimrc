@@ -176,6 +176,7 @@ set wildignore+=*/tmp/*,*.pyc,*/build/*,*/src/*
 " Make code look pretty
 let python_highlight_all=1
 syntax on
+
 " add Python syntax highlighting for all .py* files
 au BufNewFile,BufRead *.py.* set filetype=python
 

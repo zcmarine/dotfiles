@@ -52,6 +52,9 @@ fi
 # Easier recursive grepping of repos
 grepd() { grep -IR --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
 
+# Use both devpi and pypi for pip
+pi() { pip install --index-url=$DEVPI_URL --extra-index-url=https://pypi.python.org/pypi "$1"; }
+
 tma() { tmux attach -t $1; }
 tmn() { tmux new -s $1; }
 tmd () { tmux kill-session -t $1; }

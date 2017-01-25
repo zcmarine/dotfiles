@@ -44,6 +44,15 @@ alias lsd='ls -l | grep "^d"'
 # Always use color output for `ls`
 alias ls='command ls -G'
 
+# Create shortcuts for git
+alias gs='git status'
+alias gp='git pull'
+gd() { git diff "$1"; }
+ga() { git add "$1"; }
+gc() { git commit -m "$1"; }
+gac() { git commit -am "$1"; }
+
+
 # If holder for sensitive bash_profile items exists, source it
 if [[ -e  $HOME/.bash_sensitive ]] ; then
     source ~/.bash_sensitive

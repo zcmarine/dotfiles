@@ -42,7 +42,8 @@ alias vim=/usr/local/bin/vim
 alias lsd='ls -l | grep "^d"'
 
 # Always use color output for `ls`
-alias ls='command ls -G'
+alias ls='ls -lG'
+alias lsa='ls -laG'
 
 # Create shortcuts for git
 alias gs='git status'

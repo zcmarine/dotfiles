@@ -55,6 +55,7 @@ filetype plugin indent on    " required
 
 " Reload ~/.vimrc
 nnoremap <leader>r :so $MYVIMRC<CR>
+nnoremap <leader>v :e $MYVIMRC<CR>
 
 " Simplify shortcuts in split navigation
 nnoremap <C-J> <C-W><C-J>

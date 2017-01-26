@@ -70,6 +70,7 @@ pi() { pip install --index-url=$DEVPI_URL --extra-index-url=https://pypi.python.
 tma() { tmux attach -t $1; }
 tmn() { tmux new -s $1; }
 tmd () { tmux kill-session -t $1; }
+tmk () { tmux kill-session -t $1; }
 tmls () { tmux ls; }
 
 docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }

@@ -90,7 +90,6 @@ nnoremap <space> za
 nnoremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle NERDTree
-nnoremap <leader>kb :NERDTreeToggle<CR>
 nnoremap <leader>\ :NERDTreeToggle<CR>
 
 " Quick movement between buffers

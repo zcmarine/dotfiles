@@ -32,6 +32,8 @@ export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
 
+alias python2=/usr/bin/python
+
 # Tell tmux where to put sessions (make it if it doesn't exist)
 mkdir -p $HOME/.tmux_sessions/
 export TMUX_TMPDIR=$HOME/.tmux_sessions/

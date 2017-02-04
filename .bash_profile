@@ -32,7 +32,8 @@ export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
 
-alias python2=/usr/bin/python
+# Explicitly alias python2 so I don't get confused which Python I'm using
+alias python2=$(which python)
 
 # Tell tmux where to put sessions (make it if it doesn't exist)
 mkdir -p $HOME/.tmux_sessions/

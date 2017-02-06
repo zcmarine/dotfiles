@@ -31,6 +31,7 @@ export BI=$HOME/repos/business-intelligence/
 export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
+export POWERLINE_REPO=/usr/local/lib/python2.7/site-packages/powerline
 
 # Explicitly alias python2 so I don't get confused which Python I'm using
 alias python2=$(which python)
@@ -91,8 +92,8 @@ alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk '"'"'{print 
 # To get the current git branch into the status bar, navigate to
 # $HOME/Library/Python/2.7/lib/python/site-packages/powerline/config_files/config.json and
 # change the shell theme from "default" to "default_leftonly"
-if [[ -e $HOME/Library/Python/2.7/lib/python/site-packages/powerline ]] ; then
-    source $HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+if [[ -e $POWERLINE_REPO ]] ; then
+    source $POWERLINE_REPO/bindings/bash/powerline.sh
 else
     # Build out the non-powerline terminal prompt
     function parse_git_dirty() {

@@ -40,18 +40,20 @@ Plugin 'tpope/vim-vinegar'                 " Do quicker simplified directory sea
 Plugin 'tpope/vim-commentary'              " Toggle block comments with gc
 Plugin 'benmills/vimux'                    " Allow vim to interact with tmux
 
-" Add powerline status/tabline. To get powerline set up:
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Add powerline to vim from pip installed version of powerline. To get powerline set up:
 " 1) While not in a virtualenv, run `pip install —user powerline-status`
 " 2) Install a powerline-usable font so you can render the symbols correctly. I used
 "    Inconsolata-g from here: https://github.com/powerline/fonts
 " 3) Set that font as the ITerm2 default for non-ASCII text by going to
 "    ITerms > Preferences > Profiles > Text > Change Font and changing 'Font' and
 "   'Non-ASCII Font’ to use your chosen font
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}  " Add status/tabline
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Reload ~/.vimrc
 nnoremap <leader>r :so $MYVIMRC<CR>

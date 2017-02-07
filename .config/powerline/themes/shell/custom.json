@@ -2,13 +2,13 @@
 	"segments": {
 		"left": [
 			{
+				"function": "powerline.segments.common.vcs.branch",
+				"priority": 20
+			},
+			{
 				"function": "powerline.segments.common.env.virtualenv",
 				"priority": 30,
                                 "before": "ⓔ "
-			},
-			{
-				"function": "powerline.segments.common.vcs.branch",
-				"priority": 20
 			},
 			{
 				"function": "powerline.segments.shell.cwd",

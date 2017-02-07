@@ -50,14 +50,16 @@ alias ls='ls -lG'
 alias lsa='ls -laG'
 
 # Create shortcuts for git
+alias g='git'
 alias gs='git status'
 alias gpl='git pull'
 alias gps='git push'
-gd() { git diff "$1"; }
-gda() { git diff; }
-ga() { git add "$1"; }
-gc() { git commit -m "$1"; }
-gca() { git commit -am "$1"; }
+gdi() { git diff $*; }
+ga() { git add $*; }
+gco() { git commit -m "$1"; }
+gcoa() { git commit -am "$1"; }
+gch() { git checkout $*; }
+gbr() { git branch $*; }
 
 
 # If holder for sensitive bash_profile items exists, source it

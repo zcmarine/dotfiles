@@ -66,7 +66,7 @@ if [[ -e  $HOME/.bash_sensitive ]] ; then
 fi
 
 # Easier recursive grepping of repos
-grepd() { grep -IR --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
+grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
 
 # Use both devpi and pypi for pip
 pi() { pip install --index-url=$DEVPI_URL --extra-index-url=https://pypi.python.org/pypi "$1"; }

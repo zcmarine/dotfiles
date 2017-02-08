@@ -41,6 +41,7 @@ mkdir -p $HOME/.tmux_sessions/
 export TMUX_TMPDIR=$HOME/.tmux_sessions/
 
 alias vim=/usr/local/bin/vim
+alias k=kubectl
 
 # Create alias for ls-ing only directories
 alias lsd='ls -l | grep "^d"'

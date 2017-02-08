@@ -55,6 +55,7 @@ alias g='git'
 alias gs='git status'
 alias gpl='git pull'
 alias gps='git push'
+alias glo='git log -n 3'
 gdi() { git diff $*; }
 ga() { git add $*; }
 gco() { git commit -m "$1"; }

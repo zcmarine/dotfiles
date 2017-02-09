@@ -17,7 +17,7 @@
 			"theme": "default"
 		},
 		"shell": {
-			"colorscheme": "blue_black",
+			"colorscheme": "black_blue",
 			"theme": "custom",
 			"local_themes": {
 				"continuation": "continuation",
@@ -25,7 +25,7 @@
 			}
 		},
 		"tmux": {
-			"colorscheme": "default",
+			"colorscheme": "black_blue",
 			"theme": "default"
 		},
 		"vim": {

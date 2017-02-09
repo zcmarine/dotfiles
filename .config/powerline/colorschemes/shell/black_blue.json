@@ -48,12 +48,14 @@
 		"branch_clean":               { "fg": "gray9", "bg": "gray2", "attrs": [] },
 		"branch:divider":             { "fg": "gray7", "bg": "gray2", "attrs": [] },
 
-		"branch":                     { "fg": "gray9", "bg": "gray2", "attrs": [] },
-		"virtualenv":                 { "fg": "white", "bg": "darkblue", "attrs": [] },
-		"cwd":                        { "fg": "white", "bg": "darkcyan", "attrs": [] },
-		"cwd:current_folder":         { "fg": "white", "bg": "darkcyan", "attrs": [] },
-		"cwd:divider":                { "fg": "white", "bg": "darkcyan", "attrs": [] },
-                "kubernetes":                 { "fg": "gray8", "bg": "darkestblue", "attrs": [] },
-                "kubernetes:divider":         { "fg": "gray4", "bg": "darkestblue", "attrs": [] }
+		"branch":                     { "fg": "white", "bg": "darkcyan", "attrs": ["bold"] },
+		"virtualenv":                 { "fg": "white", "bg": "mediumcyan", "attrs": [] },
+		"cwd":                        { "fg": "gray9", "bg": "gray2", "attrs": [] },
+		"cwd:current_folder":         { "fg": "gray9", "bg": "gray2", "attrs": [] },
+		"cwd:divider":                { "fg": "gray9", "bg": "gray2", "attrs": [] },
+		"kubernetes_cluster":         { "fg": "white", "bg": "gray6", "attrs": [] },
+		"kubernetes_namespace":       { "fg": "white", "bg": "gray8", "attrs": [] },
+		"kubernetes_namespace:alert": { "fg": "white", "bg": "brightred", "attrs": [] },
+		"kubernetes_user":            { "fg": "white", "bg": "gray9", "attrs": [] }
 	}
 }

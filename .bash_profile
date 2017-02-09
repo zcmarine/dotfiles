@@ -94,10 +94,10 @@ alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk '"'"'{print 
 
 ksetnsp() { kubectl config set-context $(kubectl config current-context) --namespace=$1; }
 kshow() {
-	if [[ $RENDER_POWERLINE_KUBERNETES = "YES" ]]; then
-		export RENDER_POWERLINE_KUBERNETES=NO
-	else
+	if [[ $RENDER_POWERLINE_KUBERNETES = "NO" ]]; then
 		export RENDER_POWERLINE_KUBERNETES=YES
+	else
+		export RENDER_POWERLINE_KUBERNETES=NO
 	fi
 }
 

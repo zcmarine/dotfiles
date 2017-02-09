@@ -16,7 +16,7 @@
 				"before": "ⓔ "
 			},
 			{
-			        "function": "powerline_kubernetes.context",
+			        "function": "powerkube.context",
 			        "priority": 40,
 				"args": {"show_cluster": false,
 					 "show_namespace": true,

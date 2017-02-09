@@ -92,6 +92,15 @@ docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPA
 # within a single-quoted string (both awk and the alias require single quotes; doubles won't work)
 alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk '"'"'{print $3}'"'"')'
 
+ksetnsp() { kubectl config set-context $(kubectl config current-context) --namespace=$1; }
+kshow() {
+	if [[ $RENDER_POWERLINE_KUBERNETES = "YES" ]]; then
+		export RENDER_POWERLINE_KUBERNETES=NO
+	else
+		export RENDER_POWERLINE_KUBERNETES=YES
+	fi
+}
+
 ########################################################################
 #################### Build out the terminal prompt #####################
 ########################################################################

@@ -16,16 +16,16 @@
 				"before": "ⓔ "
 			},
 			{
-				"function": "powerline.segments.shell.last_status",
-				"priority": 50
-			},
-			{
 			        "function": "powerline_kubernetes.context",
 			        "priority": 40,
 				"args": {"show_cluster": false,
 					 "show_namespace": true,
 					 "show_user": false,
 					 "alert_namespaces": ["ml-prod", "pipes-prod"]}
+			},
+			{
+				"function": "powerline.segments.shell.last_status",
+				"priority": 50
 			}
 		]
 	},

@@ -33,9 +33,6 @@ export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
 export POWERLINE_REPO=/usr/local/lib/python2.7/site-packages/powerline
 
-# Explicitly alias python2 so I don't get confused which Python I'm using
-alias python2=$(which python)
-
 # Tell tmux where to put sessions (make it if it doesn't exist)
 mkdir -p $HOME/.tmux_sessions/
 export TMUX_TMPDIR=$HOME/.tmux_sessions/

@@ -66,12 +66,6 @@ if [[ -e  $HOME/.bash_sensitive ]] ; then
     source ~/.bash_sensitive
 fi
 
-# Add tab completion to kubectl; you'll first need to do `brew install bash-completion`
-if [[ -e $(brew --prefix)/etc/bash_completion ]] ; then
-    source $(brew --prefix)/etc/bash_completion
-    source <(kubectl completion bash)
-fi
-
 # Easier recursive grepping of repos
 grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
 
@@ -95,6 +89,14 @@ kshow() {
 		export RENDER_POWERLINE_KUBERNETES=YES
 	else
 		export RENDER_POWERLINE_KUBERNETES=NO
+	fi
+}
+
+# Add tab completion to kubectl; you'll first need to do `brew install bash-completion`
+kcomplete() {
+	if [[ -e $(brew --prefix)/etc/bash_completion ]] ; then
+	    source $(brew --prefix)/etc/bash_completion
+	    source <(kubectl completion bash)
 	fi
 }
 

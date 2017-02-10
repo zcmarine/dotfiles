@@ -23,6 +23,11 @@ for file in ~/.{path,exports,functions,extra}; do
 done
 unset file
 
+# If holder for sensitive bash_profile items exists, source it
+if [[ -e  $HOME/.bash_sensitive ]] ; then
+    source ~/.bash_sensitive
+fi
+
 # Set grep to highlight found patterns
 export GREP_OPTIONS='--color=always'
 
@@ -33,15 +38,8 @@ export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
 export POWERLINE_REPO=/usr/local/lib/python2.7/site-packages/powerline
 
-# Tell tmux where to put sessions (make it if it doesn't exist)
-mkdir -p $HOME/.tmux_sessions/
-export TMUX_TMPDIR=$HOME/.tmux_sessions/
-
 alias vim=/usr/local/bin/vim
 alias k=kubectl
-
-# Create alias for ls-ing only directories
-alias lsd='ls -l | grep "^d"'
 
 # Always use color output for `ls`
 alias ls='ls -lG'
@@ -60,11 +58,6 @@ gcoa() { git commit -am "$1"; }
 gch() { git checkout $*; }
 gbr() { git branch $*; }
 
-
-# If holder for sensitive bash_profile items exists, source it
-if [[ -e  $HOME/.bash_sensitive ]] ; then
-    source ~/.bash_sensitive
-fi
 
 # Easier recursive grepping of repos
 grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }

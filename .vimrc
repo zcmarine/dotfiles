@@ -33,6 +33,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'benmills/vimux'                    " Allow vim to interact with tmux
+Plugin 'christoomey/vim-tmux-navigator'    " Use same keys to move between tmux panes and vim splits
 Plugin 'ctrlpvim/ctrlp.vim'                " Search for almost anything from vim
 Plugin 'jnurmine/Zenburn'                  " Color scheme
 Plugin 'nvie/vim-flake8'                   " PEP8 checking
@@ -183,12 +184,6 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " Open / reload ~/.vimrc
 nnoremap <leader>r :so $MYVIMRC<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
-
-" Simplify shortcuts in split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Switch between the two most recent tabs + add easier cycling
 nnoremap <leader>s :b#<CR>

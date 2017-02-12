@@ -63,8 +63,8 @@ gbr() { git branch $*; }
 # Easier recursive grepping of repos
 grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
 
-# Use both devpi and pypi for pip
-pi() { pip install --index-url=$DEVPI_URL --extra-index-url=https://pypi.python.org/pypi "$1"; }
+# Alias for using pypi for pip
+pipp() { pip install --user "$1" --index-url=https://pypi.python.org/pypi ; }
 
 tma() { tmux attach -t $1; }
 tmn() { tmux new -s $1; }

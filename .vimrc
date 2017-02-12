@@ -68,6 +68,7 @@ python del powerline_setup
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
+set cul                        " Highlight the line the cursor is on
 set clipboard=unnamed          " Use the system's clipboard by default
 set colorcolumn=100            " Add ruler for line length; note that you'll want to add the
                                " following to ~/.config/flake8:   [flake8]
@@ -226,6 +227,7 @@ nnoremap : ;
 " OSX clipboard within tmux
 vnoremap <leader>t "+y:call VimuxRunCommand("%paste")<CR>
 
+" Increase / Decrease fold levels
 function! IncreaseFoldLevel()
   let foldlevel = &foldlevel
   exec 'set foldlevel=' . (&foldlevel + 1)
@@ -237,3 +239,22 @@ function! DecreaseFoldLevel()
   exec 'set foldlevel=' . (&foldlevel - 1)
 endfunc
 nnoremap <leader>l :call DecreaseFoldLevel()<CR>
+
+" Toggle pane maximization
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+  else
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
+endfunction
+
+nnoremap <leader>z :call MaximizeToggle()<CR>

@@ -39,6 +39,7 @@ export A=$HOME/repos/ansible
 export POWERLINE_REPO=/usr/local/lib/python2.7/site-packages/powerline
 
 alias vim=/usr/local/bin/vim
+alias v=/usr/local/bin/vim
 alias k=kubectl
 
 # Always use color output for `ls`

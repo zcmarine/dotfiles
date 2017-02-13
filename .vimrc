@@ -32,19 +32,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'benmills/vimux'                    " Allow vim to interact with tmux
-Plugin 'christoomey/vim-tmux-navigator'    " Use same keys to move between tmux panes and vim splits
-Plugin 'ctrlpvim/ctrlp.vim'                " Search for almost anything from vim
-Plugin 'jnurmine/Zenburn'                  " Color scheme
-Plugin 'nvie/vim-flake8'                   " PEP8 checking
-Plugin 'scrooloose/nerdtree'               " Add a file tree
-Plugin 'scrooloose/syntastic'              " Syntax checking on save
-Plugin 'tmhedberg/SimpylFold'              " Code folding
-Plugin 'tpope/vim-commentary'              " Toggle block comments with gc
-Plugin 'tpope/vim-fugitive'                " Run git within vim
-Plugin 'tpope/vim-vinegar'                 " Do quicker simplified directory searching
-Plugin 'Valloric/YouCompleteMe'            " Auto-completion
-Plugin 'vim-scripts/indentpython.vim'      " Indentation
+Plugin 'benmills/vimux'                     " Allow vim to interact with tmux
+Plugin 'blueyed/vim-diminactive'            " Dim inactive vim splits
+Plugin 'christoomey/vim-tmux-navigator'     " Use same keys to move between tmux panes and vim splits
+Plugin 'ctrlpvim/ctrlp.vim'                 " Search for almost anything from vim
+Plugin 'jnurmine/Zenburn'                   " Color scheme
+Plugin 'nvie/vim-flake8'                    " PEP8 checking
+Plugin 'scrooloose/nerdtree'                " Add a file tree
+Plugin 'scrooloose/syntastic'               " Syntax checking on save
+Plugin 'tmhedberg/SimpylFold'               " Code folding
+Plugin 'tmux-plugins/vim-tmux-focus-events' " Make FocusLost and FocusGained events work
+Plugin 'tpope/vim-commentary'               " Toggle block comments with gc
+Plugin 'tpope/vim-fugitive'                 " Run git within vim
+Plugin 'tpope/vim-vinegar'                  " Do quicker simplified directory searching
+Plugin 'Valloric/YouCompleteMe'             " Auto-completion
+Plugin 'vim-scripts/indentpython.vim'       " Indentation
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,7 +70,6 @@ python del powerline_setup
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-set cul                        " Highlight the line the cursor is on
 set clipboard=unnamed          " Use the system's clipboard by default
 set colorcolumn=100            " Add ruler for line length; note that you'll want to add the
                                " following to ~/.config/flake8:   [flake8]
@@ -96,6 +97,8 @@ let python_highlight_all=1     " Make code look pretty
 colorscheme zenburn
 syntax on                      " Make code look pretty
 
+highlight ColorColumn ctermbg=236
+highlight Normal ctermbg=239
 
 
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -163,6 +166,10 @@ let g:SimpylFold_fold_import = 0
 let g:SimpylFold_docstring_preview = 1
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+
+" Vim-diminactive
+let g:diminactive_use_colorcolumn = 1   " Hide the color column when panes are out of focus
+let g:diminactive_enable_focus = 1      " Dim when focus is lost
 
 " Vim-flake8
 let g:flake8_show_in_file=1

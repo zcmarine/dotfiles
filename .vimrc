@@ -44,7 +44,6 @@ Plugin 'tmhedberg/SimpylFold'               " Code folding
 Plugin 'tmux-plugins/vim-tmux-focus-events' " Make FocusLost and FocusGained events work
 Plugin 'tpope/vim-commentary'               " Toggle block comments with gc
 Plugin 'tpope/vim-fugitive'                 " Run git within vim
-Plugin 'tpope/vim-vinegar'                  " Do quicker simplified directory searching
 Plugin 'Valloric/YouCompleteMe'             " Auto-completion
 Plugin 'vim-scripts/indentpython.vim'       " Indentation
 

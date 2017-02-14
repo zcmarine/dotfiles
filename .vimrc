@@ -98,6 +98,7 @@ syntax on                      " Make code look pretty
 
 highlight ColorColumn ctermbg=236
 highlight Normal ctermbg=239
+highlight NonText ctermbg=236
 
 
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

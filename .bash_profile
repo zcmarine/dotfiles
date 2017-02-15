@@ -42,6 +42,7 @@ export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
 export POWERLINE_REPO=/usr/local/lib/python2.7/site-packages/powerline
+export KUBE_EDITOR=vim
 
 alias vim=/usr/local/bin/vim
 alias v=/usr/local/bin/vim

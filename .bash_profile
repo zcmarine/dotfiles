@@ -63,6 +63,9 @@ gbr() { git branch $*; }
 # Easier recursive grepping of repos
 grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
 
+# Easier recursive searching by filename
+findf() { find . -name "*$1*" -type f; }
+
 # Alias for using pypi for pip
 pipp() { pip install --user "$1" --index-url=https://pypi.python.org/pypi ; }
 

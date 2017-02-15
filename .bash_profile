@@ -28,6 +28,11 @@ if [[ -e  $HOME/.bash_sensitive ]] ; then
     source ~/.bash_sensitive
 fi
 
+# Use bastion ansible wrapper for SSH 2-factor auth
+if [[ -e  $HOME/repos/bastion/files/ansible-wrapper.sh ]] ; then
+    source $HOME/repos/bastion/files/ansible-wrapper.sh
+fi
+
 # Set grep to highlight found patterns
 export GREP_OPTIONS='--color=always'
 

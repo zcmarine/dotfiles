@@ -109,7 +109,7 @@ highlight NonText ctermbg=236
 au BufNewFile,BufRead *.py.* set filetype=python
 
 " Get standard four spaces on tabs and store file in unix format
-au BufNewFile,BufRead *.py,*.py.*,*.yaml,*.yml
+au BufNewFile,BufRead *.py,*.py.*
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -118,7 +118,7 @@ au BufNewFile,BufRead *.py,*.py.*,*.yaml,*.yml
     \ set fileformat=unix |
 
 " Do the same thing for front-end code
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js,*.html,*.css,*.yaml,*.yml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |

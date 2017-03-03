@@ -82,9 +82,7 @@ tmk () { tmux kill-session -t $1; }
 tmls () { tmux ls; }
 
 docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }
-# Remove all unnamed docker images; have to add the weird '"'"' to allow using single quotes
-# within a single-quoted string (both awk and the alias require single quotes; doubles won't work)
-alias docker-rmi='docker rmi $(docker images | grep "^<none>" | awk '"'"'{print $3}'"'"')'
+alias docker-rmi='docker rmi $(docker images -f "dangling=true" -q)'
 
 ksetnsp() { kubectl config set-context $(kubectl config current-context) --namespace=$1; }
 kshow() {

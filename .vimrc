@@ -120,9 +120,9 @@ au BufNewFile,BufRead *.py,*.py.*
 
 " Do the same thing for front-end code
 au BufNewFile,BufRead *.js,*.html,*.css,*.yaml,*.yml
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
 
 " Trim whitespace on saving, preserving cursor position
 function! TrimWhitespace()

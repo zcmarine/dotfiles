@@ -52,7 +52,6 @@ export A=$HOME/repos/ansible
 export POWERLINE_REPO=~/Library/Python/2.7/lib/python/site-packages/powerline
 export KUBE_EDITOR=vim
 
-alias vim=/usr/local/bin/vim
 alias v=/usr/local/bin/vim
 alias k=kubectl
 

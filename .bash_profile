@@ -102,6 +102,8 @@ kshow() {
 }
 
 # Add tab completion to kubectl; you'll first need to do `brew install bash-completion`
+# Note that this only works if you also installed kubectl with brew. If not,
+# run `rm $(which kubectl)` and then `brew install kubectl`
 kcomplete() {
 	if [[ -e $(brew --prefix)/etc/bash_completion ]] ; then
 	    source $(brew --prefix)/etc/bash_completion

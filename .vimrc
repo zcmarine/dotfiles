@@ -15,6 +15,7 @@
 " <Ctrl>, install Karabiner and check the boxes for:
 "     - Control_L to Control_L: (+ When you type Control_L only, send Escape)
 "     - Change Escape Key: Disable Escape
+" Note that for MacOS Sierra you'll have to use Karabiner Elements instead
 
 
 

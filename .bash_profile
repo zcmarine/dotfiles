@@ -33,7 +33,15 @@ if [[ -e  $HOME/repos/bastion/files/ansible-wrapper.sh ]] ; then
     source $HOME/repos/bastion/files/ansible-wrapper.sh
 fi
 
+# Set up Cmd + back arrow / forward arrow by going to:
+#     Go to iTerm2 > Preferences > Profiles > <your_profile > Keys # Click the + button
+#     Enter the key combination Cmd+←
+#     For the action, choose ‘Send Escape Sequence’ and enter b
+#     Repeat with the key combination Cmd+→ and the escape sequence f
+
+# Color scheme for terminal comes from https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Zenburn.itermcolors
 # Set grep to highlight found patterns
+
 export GREP_OPTIONS='--color=always'
 
 # Create shortcuts
@@ -41,7 +49,7 @@ export BI=$HOME/repos/business-intelligence/
 export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
-export POWERLINE_REPO=/usr/local/lib/python2.7/site-packages/powerline
+export POWERLINE_REPO=~/Library/Python/2.7/lib/python/site-packages/powerline
 export KUBE_EDITOR=vim
 
 alias vim=/usr/local/bin/vim

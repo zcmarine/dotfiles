@@ -44,6 +44,7 @@ url_config = {
 	['h'] = 'https://hub.squarespace.net/#/',
 	['j'] = 'https://jira.squarespace.net/secure/Dashboard.jspa',
 	['t'] = 'https://stash.nyc.squarespace.net/projects/STRAT',
+	['p'] = 'https://stash.nyc.squarespace.net/projects/DATA/repos/pyline/browse/pyline',
 }
 for key, url in pairs(url_config) do
     k:bind('', key, nil, function()

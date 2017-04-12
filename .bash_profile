@@ -75,6 +75,11 @@ gcoa() { git commit -am "$1"; }
 gch() { git checkout $*; }
 gbr() { git branch $*; }
 
+# Set upstream quickly
+gbrsu () {
+	local branch_name=$(git rev-parse --abbrev-ref HEAD);
+	git branch --set-upstream-to=origin/$branch_name $branch_name;
+}
 
 # Easier recursive grepping of repos
 grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }

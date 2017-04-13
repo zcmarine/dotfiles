@@ -98,6 +98,7 @@ tmls () { tmux ls; }
 
 docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }
 alias docker-rmi='docker rmi $(docker images -f "dangling=true" -q)'
+alias docker-rmv='docker volume rm $(docker volume ls -f dangling=true -q)'
 
 ksetnsp() { kubectl config set-context $(kubectl config current-context) --namespace=$1; }
 kshow() {

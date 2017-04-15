@@ -114,19 +114,13 @@ endif
 au BufNewFile,BufRead *.py.* set filetype=python
 
 " Get standard four spaces on tabs and store file in unix format
-au BufNewFile,BufRead *.py,*.py.*
+au BufNewFile,BufRead *
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
-
-" Do the same thing for front-end code
-au BufNewFile,BufRead *.js,*.html,*.css,*.yaml,*.yml
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
 
 " Trim whitespace on saving, preserving cursor position
 function! TrimWhitespace()

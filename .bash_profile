@@ -49,6 +49,7 @@ export BI=$HOME/repos/business-intelligence/
 export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
+export P=$HOME/repos/pyline
 export POWERLINE_REPO=~/Library/Python/2.7/lib/python/site-packages/powerline
 export KUBE_EDITOR=vim
 

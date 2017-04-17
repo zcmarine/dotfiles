@@ -101,6 +101,10 @@ highlight ColorColumn ctermbg=236
 highlight Normal ctermbg=239
 highlight NonText ctermbg=236
 
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 " ::::::::  CONFIGURE AUTO COMMANDS ::::::::::::::::::::::::::::::::::::::::::
@@ -110,19 +114,13 @@ highlight NonText ctermbg=236
 au BufNewFile,BufRead *.py.* set filetype=python
 
 " Get standard four spaces on tabs and store file in unix format
-au BufNewFile,BufRead *.py,*.py.*
+au BufNewFile,BufRead *
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
-
-" Do the same thing for front-end code
-au BufNewFile,BufRead *.js,*.html,*.css,*.yaml,*.yml
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
 
 " Trim whitespace on saving, preserving cursor position
 function! TrimWhitespace()
@@ -185,6 +183,14 @@ let NERDTreeQuitOnOpen=1       " Quit NERDTree after opening a file
 let g:ycm_autoclose_preview_window_after_completion=1
 
 
+if executable('ag')
+  " Use ag for Ctrl-P; this respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that Ctrl-P doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 
 " ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 " :::::::: REMAP / ADD SHORTCUTS :::::::::::::::::::::::::::::::::::::::::::::
@@ -234,6 +240,12 @@ nnoremap : ;
 " `brew install reattach-to-user-namespace` in order for vim to access the
 " OSX clipboard within tmux
 vnoremap <leader>t "+y:call VimuxRunCommand("%paste")<CR>
+
+" grep the word under the cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Define a new command 'Ag'
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 " Increase / Decrease fold levels
 function! IncreaseFoldLevel()

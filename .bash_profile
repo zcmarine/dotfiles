@@ -49,6 +49,7 @@ export BI=$HOME/repos/business-intelligence/
 export BII=$HOME/repos/business-intelligence/pybi/scripts
 export DT=$HOME/repos/dotfiles
 export A=$HOME/repos/ansible
+export P=$HOME/repos/pyline
 export POWERLINE_REPO=~/Library/Python/2.7/lib/python/site-packages/powerline
 export KUBE_EDITOR=vim
 
@@ -75,6 +76,11 @@ gcoa() { git commit -am "$1"; }
 gch() { git checkout $*; }
 gbr() { git branch $*; }
 
+# Set upstream quickly
+gbrsu () {
+	local branch_name=$(git rev-parse --abbrev-ref HEAD);
+	git branch --set-upstream-to=origin/$branch_name $branch_name;
+}
 
 # Easier recursive grepping of repos
 grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
@@ -93,6 +99,7 @@ tmls () { tmux ls; }
 
 docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }
 alias docker-rmi='docker rmi $(docker images -f "dangling=true" -q)'
+alias docker-rmv='docker volume rm $(docker volume ls -f dangling=true -q)'
 
 ksetnsp() { kubectl config set-context $(kubectl config current-context) --namespace=$1; }
 kshow() {

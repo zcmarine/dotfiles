@@ -29,9 +29,9 @@ if [[ -e  $HOME/.bash_sensitive ]] ; then
 fi
 
 # Use bastion ansible wrapper for SSH 2-factor auth
-if [[ -e  $HOME/repos/bastion/files/ansible-wrapper.sh ]] ; then
-    source $HOME/repos/bastion/files/ansible-wrapper.sh
-fi
+# if [[ -e  $HOME/repos/bastion/files/ansible-wrapper.sh ]] ; then
+#     source $HOME/repos/bastion/files/ansible-wrapper.sh
+# fi
 
 # Set up Cmd + back arrow / forward arrow by going to:
 #     Go to iTerm2 > Preferences > Profiles > <your_profile > Keys # Click the + button

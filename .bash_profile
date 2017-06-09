@@ -56,6 +56,8 @@ export KUBE_EDITOR=vim
 # Stop kubernetes cluster info from showing up by default
 export RENDER_POWERLINE_KUBERNETES=NO
 
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible-vault-pw
+
 alias v=/usr/local/bin/vim
 alias k=kubectl
 

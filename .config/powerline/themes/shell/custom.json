@@ -11,6 +11,10 @@
 				"priority": 20
 			},
 			{
+				"function": "powerline.segments.common.vcs.stash",
+				"priority": 25
+			},
+			{
 				"function": "powerline.segments.common.env.virtualenv",
 				"priority": 30,
 				"before": "ⓔ "

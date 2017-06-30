@@ -38,7 +38,7 @@ end
 
 
 url_config = {
-	['b'] = 'https://bamboo.nyc.squarespace.net/allPlans.action',
+	['b'] = 'https://bamboo.nyc.squarespace.net/myBamboo.action',
 	['d'] = 'https://stash.nyc.squarespace.net/projects/DATA',
 	['g'] = 'https://mail.google.com/mail/u/0/#inbox',
 	['h'] = 'https://hub.squarespace.net/#/',

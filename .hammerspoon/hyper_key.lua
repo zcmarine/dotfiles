@@ -26,7 +26,7 @@ f18 = hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
 k:bind('', 'r', nil, function() hs.reload() end)
 
 app_config = {
-	['c'] = 'Google Chrome',
+        ['c'] = 'Google Chrome',
         ['e'] = 'Evernote',
         ['f'] = 'Finder',
          -- ['i'] = 'iTerm2',

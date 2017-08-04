@@ -2,6 +2,12 @@
 	"segments": {
 		"left": [
 			{
+				"function": "powerline.segments.common.time.date",
+				"priority": 10,
+				"args": {"istime": true,
+                         "format": "%H:%M:%S"}
+			},
+			{
 				"function": "powerline.segments.shell.cwd",
 				"priority": 10,
 				"args": {"dir_shorten_len": 3}
@@ -23,9 +29,9 @@
 			        "function": "powerkube.context",
 			        "priority": 40,
 				"args": {"show_cluster": false,
-					 "show_namespace": true,
-					 "show_user": false,
-					 "alert_namespaces": ["ml-prod", "pipes-prod"]}
+    					 "show_namespace": true,
+	    				 "show_user": false,
+		    			 "alert_namespaces": ["ml-prod", "pipes-prod"]}
 			},
 			{
 				"function": "powerline.segments.shell.last_status",

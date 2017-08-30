@@ -87,6 +87,7 @@ set pastetoggle=<F2>           " Switch into 'paste mode' to prevent cascading i
 set showmatch                  " Show matching parenthesis
 set smartcase                  " Use case-sensitive search if a capital letter is in search term
 set t_Co=256
+set textwidth=100              " Used to re-format paragraph width via gqip
 set title                      " Turn on the title bar
 set titleold=""                " Get rid of the 'Thanks for flying Vim' message
 set titlestring=vim:\ %F       " Set the new title to the filename

@@ -122,6 +122,22 @@ kcomplete() {
 	fi
 }
 
+# Adding this here as I always forget how to install the current kernel into my
+# current virtualenv
+ipy-kernel-install() {
+    if [[ -z $(pip show ipython) ]] ; then
+        echo 'ERROR: You must have the ipython library installed'
+        return
+    fi
+
+    if [[ -z $(pip show jupyter) ]] ; then
+        echo 'ERROR: You must have the jupyter library installed'
+        return
+    fi
+
+    ipython kernel install;
+}
+
 ########################################################################
 #################### Build out the terminal prompt #####################
 ########################################################################

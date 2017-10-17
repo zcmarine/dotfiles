@@ -57,6 +57,7 @@ export KUBE_EDITOR=vim
 export RENDER_POWERLINE_KUBERNETES=NO
 
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible-vault-pw
+export TILLER_NAMESPACE=analytics
 
 alias v=/usr/local/bin/vim
 alias k=kubectl

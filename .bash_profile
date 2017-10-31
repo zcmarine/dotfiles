@@ -79,7 +79,8 @@ gcoa() { git commit -am "$1"; }
 gch() { git checkout $*; }
 gbr() { git branch $*; }
 
-# Set upstream quickly
+# Set upstream quickly; better just to do gch -bt
+# to automatically set up tracking though
 gbrsu () {
 	local branch_name=$(git rev-parse --abbrev-ref HEAD);
 	git branch --set-upstream-to=origin/$branch_name $branch_name;

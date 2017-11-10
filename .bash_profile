@@ -141,6 +141,21 @@ ipy-kernel-install() {
     ipython kernel install;
 }
 
+open_stash() {
+    REPO_NAME=$(basename `git rev-parse --show-toplevel`);
+    RELATIVE_PATH=$(git rev-parse --show-prefix);
+
+    case $REPO_NAME in
+        "ansible") PROJECT=SYSTEMS;;
+        "dconn"|"easel"|"gsheets"|"analytics-dqis") PROJECT=STRAT;;
+        *) PROJECT=DATA;;
+    esac;
+
+    URL="$BASE_STASH_URL/projects/$PROJECT/repos/$REPO_NAME/browse/$RELATIVE_PATH$1";
+    open "$URL";
+}
+
+
 ########################################################################
 #################### Build out the terminal prompt #####################
 ########################################################################

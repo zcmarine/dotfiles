@@ -94,6 +94,7 @@ set titlestring=vim:\ %F       " Set the new title to the filename
 set visualbell                 " Don't beep
 
 let python_highlight_all=1     " Make code look pretty
+let $BASH_ENV="~/.bash_profile"
 
 colorscheme zenburn
 syntax on                      " Make code look pretty
@@ -279,3 +280,19 @@ function! MaximizeToggle()
 endfunction
 
 nnoremap <leader>z :call MaximizeToggle()<CR>
+
+" Open Stash
+function! OpenStash()
+  let relative_path = expand('%:r')
+  let extension = expand('%:e')
+
+  if extension != ''
+      let relative_path = relative_path . '.' . extension
+  endif
+
+  :call system('open_stash ' . relative_path)<CR>
+  endif
+endfunction
+
+nnoremap <leader>o :call OpenStash()<CR>
+

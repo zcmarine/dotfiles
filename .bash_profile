@@ -142,17 +142,17 @@ ipy-kernel-install() {
 }
 
 open_stash() {
-    REPO_NAME=$(basename `git rev-parse --show-toplevel`);
-    RELATIVE_PATH=$(git rev-parse --show-prefix);
+    local repo_name=$(basename `git rev-parse --show-toplevel`);
+    local relative_path=$(git rev-parse --show-prefix);
 
-    case $REPO_NAME in
-        "ansible") PROJECT=SYSTEMS;;
-        "dconn"|"easel"|"gsheets"|"analytics-dqis") PROJECT=STRAT;;
-        *) PROJECT=DATA;;
+    case $repo_name in
+        "ansible") local project=SYSTEMS;;
+        "dconn"|"easel"|"gsheets"|"analytics-dqis") local project=STRAT;;
+        *) local project=DATA;;
     esac;
 
-    URL="$BASE_STASH_URL/projects/$PROJECT/repos/$REPO_NAME/browse/$RELATIVE_PATH$1";
-    open "$URL";
+    local url="$BASE_STASH_URL/projects/$project/repos/$repo_name/browse/$relative_path$1";
+    open "$url";
 }
 
 

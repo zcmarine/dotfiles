@@ -94,7 +94,7 @@ set titlestring=vim:\ %F       " Set the new title to the filename
 set visualbell                 " Don't beep
 
 let python_highlight_all=1     " Make code look pretty
-let $BASH_ENV="~/.bash_profile"
+
 
 colorscheme zenburn
 syntax on                      " Make code look pretty
@@ -262,6 +262,7 @@ function! DecreaseFoldLevel()
 endfunc
 nnoremap <leader>l :call DecreaseFoldLevel()<CR>
 
+
 " Toggle pane maximization
 function! MaximizeToggle()
   if exists("s:maximize_session")
@@ -281,18 +282,37 @@ endfunction
 
 nnoremap <leader>z :call MaximizeToggle()<CR>
 
+
+" get rid of trailing newlines included by vim's system calls
+function! Chomp(string)
+    return substitute(a:string, '\n\+$', '', '')
+endfunction
+
+
 " Open Stash
 function! OpenStash()
-  let relative_path = expand('%:r')
+  let base_stash_url = $BASE_STASH_URL
+  let repo_name = Chomp(system('basename `git rev-parse --show-toplevel`'))
+  " shell_rel_path is where we opened vim from (i.e. where our shell is)
+  let shell_rel_path = Chomp(system('git rev-parse --show-prefix'))
+  let vim_relative_path = expand('%:r')
   let extension = expand('%:e')
 
-  if extension != ''
-      let relative_path = relative_path . '.' . extension
+  if repo_name == 'ansible'
+      let project = 'SYSTEMS'
+  " This basically does 'elseif repo_name in ['dconn', 'easel', ...]'
+  elseif index(map(['dconn', 'easel', 'gsheets', 'analytics-dqis'], 'repo_name =~ v:val'), 1) > -1
+      let project = 'STRAT'
+  else
+      let project = 'DATA'
   endif
 
-  :call system('open_stash ' . relative_path)<CR>
+  if extension != ''
+      let vim_relative_path = vim_relative_path . '.' . extension
   endif
+
+  let url = base_stash_url . '/projects/' . project . '/repos/' . repo_name . '/browse/' . shell_rel_path . vim_relative_path
+  :call system('open ' . url)<CR>
 endfunction
 
 nnoremap <leader>o :call OpenStash()<CR>
-

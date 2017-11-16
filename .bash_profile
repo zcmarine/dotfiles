@@ -78,7 +78,12 @@ gco() { git commit -m "$1"; }
 gcoa() { git commit -am "$1"; }
 gch() { git checkout $*; }
 gbr() { git branch $*; }
-gcd() { cd `git rev-parse --show-cdup`; }
+gcd() {
+    local cdup=$(git rev-parse --show-cdup);
+    if [[ $cdup ]] ; then
+        cd "$cdup"
+    fi
+}
 
 # Set upstream quickly; better just to do gch -bt
 # to automatically set up tracking though

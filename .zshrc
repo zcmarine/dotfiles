@@ -1,3 +1,11 @@
+# zsh and powerlevel9k installed via:
+# - brew install zsh zsh-completions
+# - chsh -s $(which zsh)
+# - Changing iTerm2 settings:
+#       in iTerm2 -> Preferences -> Profiles -> Default -> General Tab,
+#       set the command to /usr/local/bin/zsh instead of Login shell.
+# - follow the oh-my-zsh installation instructions here: https://github.com/robbyrussell/oh-my-zsh
+
 ########################################################################
 ###################### Set up powerlevel9k prompt ######################
 ########################################################################
@@ -42,7 +50,7 @@ get_virtualenv() {
 
 POWERLEVEL9K_CUSTOM_VIRTUALENV="get_virtualenv"
 POWERLEVEL9K_CUSTOM_VIRTUALENV_BACKGROUND='124'
-POWERLEVEL9K_CUSTOM_VIRTUALENV_FOREGROUND='250'
+POWERLEVEL9K_CUSTOM_VIRTUALENV_FOREGROUND='253'
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='088'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='254'
@@ -64,7 +72,6 @@ POWERLEVEL9K_CUSTOM_KUBE_NAMESPACE="get_k8s_namespace"
 POWERLEVEL9K_CUSTOM_KUBE_NAMESPACE_BACKGROUND="0"
 POWERLEVEL9K_CUSTOM_KUBE_NAMESPACE_FOREGROUND="255"
 
-#TODO: move functionality common to both bash_profile and zshrc into one file and source it
 
 ########################################################################
 ###################### Set up zsh functionality ########################
@@ -103,150 +110,10 @@ source $ZSH/oh-my-zsh.sh
 #################### Set up terminal functionality #####################
 ########################################################################
 
-# Profile largely built off of:
-#   - https://github.com/nicolashery/mac-dev-setup
-#   - https://github.com/gf3/dotfiles
+source $HOME/.common_rc
 
-# Add the default install locations for Homebrew and pip --user to `$PATH`
-PATH=$HOME/Library/Python/2.7/bin:/usr/local/bin:$PATH
-export PATH
-
-# Set up virtualenvwrapper
-export WORKON_HOME=$HOME/Envs
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Load shell dotfiles
-#   - ~/.path can be used to extend `$PATH`
-#   - ~/.extra can be used for other settings you don’t want to commit
-#   Note: only appears that `exports` is necessary here
-for file in ~/.{path,exports,functions,extra}; do
-    [ -r "$file" ] && source "$file"
-done
-unset file
-
-# If holder for sensitive items exists, source it
-if [[ -e  $HOME/.bash_sensitive ]] ; then
-    source ~/.bash_sensitive
-fi
-
-# Set up Cmd + back arrow / forward arrow by going to:
-#     Go to iTerm2 > Preferences > Profiles > <your_profile > Keys # Click the + button
-#     Enter the key combination Cmd+←
-#     For the action, choose ‘Send Escape Sequence’ and enter b
-#     Repeat with the key combination Cmd+→ and the escape sequence f
-
-# Color scheme for terminal comes from https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Zenburn.itermcolors
-# Set grep to highlight found patterns
-export GREP_OPTIONS='--color=always'
-
-# Create shortcuts
-export BI=$HOME/repos/business-intelligence/
-export BII=$HOME/repos/business-intelligence/pybi/scripts
-export DT=$HOME/repos/dotfiles
-export A=$HOME/repos/ansible
-export P=$HOME/repos/pyline
-export POWERLINE_REPO=~/Library/Python/2.7/lib/python/site-packages/powerline
-export KUBE_EDITOR=vim
+# Add tab completion to kubectl; you'll first need to do `brew install zsh-completions`
+kcomplete() { source <(kubectl completion zsh); }
 
 # prevent zsh from setting this to page all output regardless of length
 unset LESS
-
-# Stop kubernetes cluster info from showing up by default
-export RENDER_POWERLINE_KUBERNETES=NO
-
-export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible-vault-pw
-export TILLER_NAMESPACE=analytics
-
-alias v=/usr/local/bin/vim
-alias k=kubectl
-
-# Always use color output for `ls`
-alias ls='ls -lG'
-alias lsa='ls -laG'
-
-# Create shortcuts for git
-alias g='git'
-alias gs='git status'
-alias gpl='git pull'
-alias gps='git push'
-alias glo='git log -n 3'
-gdi() { git diff $*; }
-ga() { git add $*; }
-gc() { git commit $*; }
-# gco() { git commit -m "$1"; }
-# gcoa() { git commit -am "$1"; }
-gch() { git checkout $*; }
-gbr() { git branch $*; }
-gcd() {
-    local cdup=$(git rev-parse --show-cdup);
-    if [[ $cdup ]] ; then
-        cd "$cdup"
-    fi
-}
-
-# Set upstream quickly; better just to do gch -bt
-# to automatically set up tracking though
-gbrsu () {
-	local branch_name=$(git rev-parse --abbrev-ref HEAD);
-	git branch --set-upstream-to=origin/$branch_name $branch_name;
-}
-
-# Easier recursive grepping of repos
-grepd() { grep -IRn --exclude-dir={.eggs,.git,.idea,.ipynb_checkpoints,.tox,build,src} "$1" .; }
-
-# Easier recursive searching by filename
-findf() { find . -name "*$1*" -type f; }
-
-# Alias for using pypi for pip
-pipp() { pip install --user "$1" --index-url=https://pypi.python.org/pypi ; }
-
-tma() { tmux attach -t $1; }
-tmn() { tmux new -s $1; }
-tmd () { tmux kill-session -t $1; }
-tmk () { tmux kill-session -t $1; }
-tmls () { tmux ls; }
-
-docker-ip() { docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"; }
-alias docker-rmi='docker rmi $(docker images -f "dangling=true" -q)'
-alias docker-rmv='docker volume rm $(docker volume ls -f dangling=true -q)'
-
-ksetnsp() { kubectl config set-context $(kubectl config current-context) --namespace=$1; }
-kshow() {
-	if [[ $RENDER_POWERLINE_KUBERNETES = "NO" ]]; then
-		export RENDER_POWERLINE_KUBERNETES=YES
-	else
-		export RENDER_POWERLINE_KUBERNETES=NO
-	fi
-}
-
-kcomplete() { source <(kubectl completion zsh); }
-
-# Adding this here as I always forget how to install the current kernel into my
-# current virtualenv
-ipy-kernel-install() {
-    if [[ -z $(pip show ipython) ]] ; then
-        echo 'ERROR: You must have the ipython library installed'
-        return
-    fi
-
-    if [[ -z $(pip show jupyter) ]] ; then
-        echo 'ERROR: You must have the jupyter library installed'
-        return
-    fi
-
-    ipython kernel install;
-}
-
-open_stash() {
-    local repo_name=$(basename `git rev-parse --show-toplevel`);
-    local relative_path=$(git rev-parse --show-prefix);
-
-    case $repo_name in
-        "ansible") local project=SYSTEMS;;
-        "dconn"|"easel"|"gsheets"|"analytics-dqis") local project=STRAT;;
-        *) local project=DATA;;
-    esac;
-
-    local url="$BASE_STASH_URL/projects/$project/repos/$repo_name/browse/$relative_path$1";
-    open "$url";
-}

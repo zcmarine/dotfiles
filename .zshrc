@@ -101,7 +101,6 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # Note: custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
- fancy-ctrl-z
  jira
  vi-mode
 )

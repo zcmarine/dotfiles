@@ -1,10 +1,13 @@
-# zsh and powerlevel9k installed via:
-# - brew install zsh zsh-completions
-# - chsh -s $(which zsh)
-# - Changing iTerm2 settings:
-#       in iTerm2 -> Preferences -> Profiles -> Default -> General Tab,
-#       set the command to /usr/local/bin/zsh instead of Login shell.
-# - follow the oh-my-zsh installation instructions here: https://github.com/robbyrussell/oh-my-zsh
+# zsh Initial Setup:
+# 1. Install zsh and set it as your default shell
+#     - brew install zsh zsh-completions
+#     - Change iTerm2 shell settings
+#           - Go to iTerm2 -> Preferences -> Profiles -> Default -> General Tab
+#             and set the command to /usr/local/bin/zsh instead of Login shell
+# 2. Install oh-my-zsh
+#     - follow the instructions here: https://github.com/robbyrussell/oh-my-zsh
+# 3. Install powerlevel9k
+#     - git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 ########################################################################
 ###################### Set up powerlevel9k prompt ######################
@@ -80,6 +83,8 @@ POWERLEVEL9K_VI_COMMAND_MODE_STRING='VIM'
 ########################################################################
 ###################### Set up zsh functionality ########################
 ########################################################################
+
+export SHELL=$(which zsh)
 
 # Path to oh-my-zsh installation
 export ZSH=/Users/zmarine/.oh-my-zsh

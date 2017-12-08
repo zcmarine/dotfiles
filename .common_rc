@@ -70,6 +70,7 @@ export TILLER_NAMESPACE=analytics
 
 alias v=/usr/local/bin/vim
 alias k=kubectl
+alias mktmpenv='mktmpenv -n'
 
 # Always use color output for `ls`
 alias ls='ls -lG'

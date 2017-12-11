@@ -311,7 +311,9 @@ function! OpenStash()
       let vim_relative_path = vim_relative_path . '.' . extension
   endif
 
-  let url = base_stash_url . '/projects/' . project . '/repos/' . repo_name . '/browse/' . shell_rel_path . vim_relative_path
+  let branch = Chomp(system("cat `git rev-parse --show-cdup`.git/HEAD | cut -d' ' -f2 | sed 's#/#%2F#g'"))
+
+  let url = base_stash_url . '/projects/' . project . '/repos/' . repo_name . '/browse/' . shell_rel_path . vim_relative_path . '\?at=' . branch
   :call system('open ' . url)<CR>
 endfunction
 

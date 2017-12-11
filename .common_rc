@@ -137,6 +137,7 @@ ipy-kernel-install() {
 open_stash() {
     local repo_name=$(basename `git rev-parse --show-toplevel`);
     local relative_path=$(git rev-parse --show-prefix);
+    local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d' ' -f2 | sed 's#/#%2F#g')
 
     case $repo_name in
         "ansible") local project=SYSTEMS;;
@@ -144,6 +145,6 @@ open_stash() {
         *) local project=DATA;;
     esac;
 
-    local url="$BASE_STASH_URL/projects/$project/repos/$repo_name/browse/$relative_path$1";
+    local url="$BASE_STASH_URL/projects/$project/repos/$repo_name/browse/$relative_path$1?at=$branch";
     open "$url";
 }

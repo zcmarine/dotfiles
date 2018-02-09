@@ -6,6 +6,7 @@
 .bamboo_version
 .coverage
 
+*.ignore
 *.ipynb
 *.pyc
 *.xml

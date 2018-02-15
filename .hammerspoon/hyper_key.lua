@@ -29,7 +29,6 @@ app_config = {
         ['c'] = 'Google Chrome',
         ['e'] = 'Evernote',
         ['f'] = 'Finder',
-         -- ['i'] = 'iTerm2',
         ['s'] = 'Slack',
 }
 for key, application in pairs(app_config) do
@@ -48,16 +47,14 @@ url_config = {
 }
 for key, url in pairs(url_config) do
     k:bind('', key, nil, function()
-        news = string.format("app = Application.currentApplication(); app.includeStandardAdditions = true; app.doShellScript('open %s')", url)
-        hs.osascript.javascript(news)
+        hs.urlevent.openURL(url)
 	end)
 end
 
 
 -- G for open gmail 1
 k:bind('shift', 'g', nil, function()
-  news = "app = Application.currentApplication(); app.includeStandardAdditions = true; app.doShellScript('open https://mail.google.com/mail/u/1/#inbox')"
-  hs.osascript.javascript(news)
+    hs.urlevent.openURL("https://mail.google.com/mail/u/1/#inbox")
 end
 )
 

@@ -6,6 +6,10 @@
 PATH=$HOME/Library/Python/2.7/bin:/usr/local/bin:$PATH
 export PATH
 
+# Add hive to our path
+PATH=/opt/apache-hive-1.1.0-bin/bin:$PATH
+export PATH
+
 # Set up virtualenvwrapper
 export WORKON_HOME=$HOME/Envs
 source /usr/local/bin/virtualenvwrapper.sh
@@ -75,6 +79,8 @@ alias mktmpenv='mktmpenv -n'
 # Always use color output for `ls`
 alias ls='ls -lG'
 alias lsa='ls -laG'
+
+alias beehive="beeline -n $(whoami) -u 'jdbc:hive2://$HIVE_URI:10000'"
 
 # Create shortcuts for git
 alias g='git'

@@ -3,7 +3,7 @@
 #   - https://github.com/gf3/dotfiles
 
 # Add the default install locations for Homebrew and pip --user to `$PATH`
-PATH=$HOME/Library/Python/2.7/bin:/usr/local/bin:$PATH
+PATH=/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export PATH
 
 # Add hive to our path

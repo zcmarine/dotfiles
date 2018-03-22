@@ -38,7 +38,7 @@ Plugin 'blueyed/vim-diminactive'            " Dim inactive vim splits
 Plugin 'christoomey/vim-tmux-navigator'     " Use same keys to move between tmux panes and vim splits
 Plugin 'ctrlpvim/ctrlp.vim'                 " Search for almost anything from vim
 Plugin 'jnurmine/Zenburn'                   " Color scheme
-Plugin 'nvie/vim-flake8'                    " PEP8 checking
+Plugin 'nvie/vim-flake8'                    " PEP8 checking; you may need to `pip3 install flake8`
 Plugin 'scrooloose/nerdtree'                " Add a file tree
 Plugin 'scrooloose/syntastic'               " Syntax checking on save
 Plugin 'tmhedberg/SimpylFold'               " Code folding

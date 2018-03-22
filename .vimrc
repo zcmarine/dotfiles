@@ -59,9 +59,10 @@ filetype plugin indent on    " required
 " 3) Set that font as the ITerm2 default for non-ASCII text by going to
 "    ITerms > Preferences > Profiles > Text > Change Font and changing 'Font' and
 "   'Non-ASCII Font’ to use your chosen font
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
 
 
 

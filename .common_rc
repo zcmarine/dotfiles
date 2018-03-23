@@ -140,17 +140,23 @@ ipy-kernel-install() {
     ipython kernel install;
 }
 
-open_stash() {
-    local repo_name=$(basename `git rev-parse --show-toplevel`);
+open_repo() {
+    local host_platform=$(git remote get-url origin | cut -d '@' -f 2 | cut -d '.' -f 1)
     local relative_path=$(git rev-parse --show-prefix);
-    local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d' ' -f2 | sed 's#/#%2F#g')
 
-    case $repo_name in
-        "ansible") local project=SYSTEMS;;
-        "dconn"|"easel"|"gsheets"|"analytics-dqis") local project=STRAT;;
-        *) local project=DATA;;
-    esac;
-
-    local url="$BASE_STASH_URL/projects/$project/repos/$repo_name/browse/$relative_path$1?at=$branch";
+    if [[ $host_platform = 'github' ]]; then
+        local repo_name=$(git remote get-url origin | cut -d '@' -f 2 | tr : / | cut -d '.' -f 1,2);
+        local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d '/' -f 3)
+        local url="https://$repo_name/tree/$branch/$relative_path";
+    else
+        local repo_name=$(basename `git rev-parse --show-toplevel`);
+        local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d' ' -f2 | sed 's#/#%2F#g')
+        case $repo_name in
+            "ansible") local project=SYSTEMS;;
+            "dconn"|"easel"|"gsheets"|"analytics-dqis") local project=STRAT;;
+            *) local project=DATA;;
+        esac;
+        local url="$BASE_STASH_URL/projects/$project/repos/$repo_name/browse/$relative_path$1?at=$branch";
+    fi
     open "$url";
 }

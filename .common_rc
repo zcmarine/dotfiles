@@ -144,10 +144,17 @@ open_repo() {
     local host_platform=$(git remote get-url origin | cut -d '@' -f 2 | cut -d '.' -f 1)
     local relative_path=$(git rev-parse --show-prefix);
 
-    if [[ $host_platform = 'github' ]]; then
+    if [[ $host_platform = *"github"* ]]; then
         local repo_name=$(git remote get-url origin | cut -d '@' -f 2 | tr : / | cut -d '.' -f 1,2);
         local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d '/' -f 3)
-        local url="https://$repo_name/tree/$branch/$relative_path";
+
+        if [[ -z $relative_path && -z $1 ]]; then
+            echo 'bar'
+            local url="https://$repo_name/tree/$branch";
+        else
+            echo 'foo'
+            local url="https://$repo_name/blob/$branch/$relative_path$1";
+        fi
     else
         local repo_name=$(basename `git rev-parse --show-toplevel`);
         local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d' ' -f2 | sed 's#/#%2F#g')

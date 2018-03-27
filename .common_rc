@@ -149,10 +149,8 @@ open_repo() {
         local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d '/' -f 3)
 
         if [[ -z $relative_path && -z $1 ]]; then
-            echo 'bar'
             local url="https://$repo_name/tree/$branch";
         else
-            echo 'foo'
             local url="https://$repo_name/blob/$branch/$relative_path$1";
         fi
     else

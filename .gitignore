@@ -21,6 +21,7 @@
 .idea
 .ipynb_checkpoints/
 .tox/
+.pytest_cache/
 build/
 dist/
 src/

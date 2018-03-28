@@ -45,3 +45,6 @@
 
 [branch]
 	autosetuprebase = always
+
+[includeIf "gitdir:~/repos/github/"]
+    path = .gitconfig-github

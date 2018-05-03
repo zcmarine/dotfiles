@@ -38,7 +38,7 @@
 
 [user]
 	name = Zach Marine
-	email = zmarine@squarespace.com
+	email = zcmarine@gmail.com
 
 [push]
 	default = current
@@ -46,5 +46,5 @@
 [branch]
 	autosetuprebase = always
 
-[includeIf "gitdir:~/repos/github/"]
-    path = .gitconfig-github
+[includeIf "gitdir:~/repos/stash/"]
+    path = .gitconfig-sqsp

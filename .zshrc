@@ -8,6 +8,10 @@
 #     - follow the instructions here: https://github.com/robbyrussell/oh-my-zsh
 # 3. Install powerlevel9k
 #     - git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+#
+# If you have issues with git auto-completion, try the following:
+#     $ brew uninstall git
+#     $ brew install git --without-completions
 
 ########################################################################
 ###################### Set up powerlevel9k prompt ######################

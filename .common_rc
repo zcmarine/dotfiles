@@ -146,7 +146,7 @@ open_repo() {
 
     if [[ $host_platform = *"github"* ]]; then
         local repo_name=$(git remote get-url origin | cut -d '@' -f 2 | tr : / | cut -d '.' -f 1,2);
-        local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d '/' -f 3)
+        local branch=$(cat `git rev-parse --show-cdup`.git/HEAD | cut -d '/' -f 3-)
 
         if [[ -z $relative_path && -z $1 ]]; then
             local url="https://$repo_name/tree/$branch";

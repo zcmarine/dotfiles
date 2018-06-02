@@ -87,7 +87,7 @@ alias g='git'
 alias gs='git status'
 alias gpl='git pull'
 alias gps='git push'
-alias glo='git log HEAD --not master -n 3'
+alias glo='git log HEAD --not master'
 gdi() { git diff $*; }
 ga() { git add $*; }
 gc() { git commit $*; }
